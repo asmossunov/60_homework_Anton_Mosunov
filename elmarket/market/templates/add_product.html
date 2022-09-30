@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    Product create
+{% endblock %}
+{% block content %}
+    <form action="{% url 'product_add' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="form">
+            {% include 'partials/product_form.html' with main_title='Добавить товар' button_text='Создать' %}
+        </div>
+
+    </form>
+{% endblock %}

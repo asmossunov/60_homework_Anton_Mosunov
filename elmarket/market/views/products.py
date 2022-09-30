@@ -3,7 +3,7 @@ from django.urls import reverse
 
 from market.models import Product, CategoryChoices
 
-
+from market.forms import ProductForm
 
 
 def index_view(request):
@@ -24,3 +24,17 @@ def product_view(request, pk):
             'choices': CategoryChoices.choices,
         }
         return render(request, 'product.html', context)
+
+def add_product_view(request):
+    form = ProductForm()
+    if request.method == 'GET':
+        context = {'form': form}
+        return render(request, 'add_product.html', context)
+    form = ProductForm(request.POST)
+    if not form.is_valid():
+        context = {
+            'form': form
+        }
+        return render(request, 'add_product.html', context)
+    product = Product.objects.create(**form.cleaned_data)
+    return redirect('product_detail', pk=product.pk)

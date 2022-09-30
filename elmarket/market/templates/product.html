@@ -21,7 +21,15 @@
                     <p class="card-price">Цена: {{ product.price | floatformat:-2 }} $</p>
                     <p class="card-description">{{ product.product_description }}</p>
                     <span class="added">добавлено: {{ product.created_at |date:'Y/m/d H:i:s' }}</span>
+                    <div class="row justify-content-center space-between">
+                        <div class="col-5">
+                            <a href="{% url 'product_delete' product.pk %}"><button type="submit" class="btn btn-secondary btn-block">Удалить</button></a>
+                        </div>
 
+                        <div class="col-6 text-center">
+                            <a href="{% url 'product_edit' product.pk %}"><button type="submit" class="btn btn-secondary btn-block">Редактировать</button></a>
+                        </div>
+                    </div>
 
                 </div>
 
