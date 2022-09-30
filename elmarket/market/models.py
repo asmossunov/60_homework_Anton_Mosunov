@@ -29,7 +29,7 @@ class Product(models.Model):
     product_image = models.TextField(verbose_name='Изображение', max_length=3000,
                                      null=False, blank=False)
     product_category = models.CharField(verbose_name=' Товар', choices=CategoryChoices.choices,
-                                        max_length=100, null=False, default=CategoryChoices.other)
+                                        max_length=100, null=False, default=CategoryChoices.choices[0][1])
     state = models.CharField(verbose_name='Состояние', choices=StateChoices.choices,
                              max_length=100, default=StateChoices.ACTIVE)
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
