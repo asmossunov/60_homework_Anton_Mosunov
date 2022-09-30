@@ -15,15 +15,16 @@
                     <h5 class="card-title">{{ product.product_name }}</h5>
                     {% for choice in choices %}
                         {% if product.product_category == choice.0 %}
-                            <p class="card-text">{{ choice.0}}</p>
+                            <p class="card-text">{{ choice.1}}</p>
                         {% endif%}
                     {% endfor %}
                     <p class="card-price">Цена: {{ product.price | floatformat:-2 }} $</p>
                     <p class="card-description">{{ product.product_description }}</p>
                     <span class="added">добавлено: {{ product.created_at |date:'Y/m/d H:i:s' }}</span>
                     <div class="row justify-content-center space-between">
-                        <div class="col-5">
-                            <a href="{% url 'product_delete' product.pk %}"><button type="submit" class="btn btn-secondary btn-block">Удалить</button></a>
+
+                        <div class="col-6 text-center">
+                            <a href="{% url 'product_delete' product.pk %}"><button type="submit" class="btn btn-secondary btn-block">Редактировать</button></a>
                         </div>
 
                         <div class="col-6 text-center">
