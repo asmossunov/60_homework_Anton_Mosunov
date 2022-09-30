@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+    Product: {{ product.product_name }}
+{% endblock %}
+{% block menu %}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="box">
+            <div class="row justify-content-center ">
+                <div class="col-5 text-center">
+                    <img class="product_card" src="{{ product.product_image }}" alt="Card image cap">
+                </div>
+                <div class="col-5 card_desc">
+                    <h5 class="card-title">{{ product.product_name }}</h5>
+                    {% for choice in choices %}
+                        {% if product.product_category == choice.0 %}
+                            <p class="card-text">{{ choice.0}}</p>
+                        {% endif%}
+                    {% endfor %}
+                    <p class="card-price">Цена: {{ product.price | floatformat:-2 }} $</p>
+                    <p class="card-description">{{ product.product_description }}</p>
+                    <span class="added">добавлено: {{ product.created_at |date:'Y/m/d H:i:s' }}</span>
+
+
+                </div>
+
+
+    </div>
+{% endblock %}

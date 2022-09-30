@@ -3,11 +3,11 @@ from django.db.models import TextChoices
 from django.core.validators import MinValueValidator
 
 
-CHOICES = [('other', 'разное'),
-           ('televisions', 'телевизоры'),
-           ('refrigerators', 'холодильники'),
-           ('electric_kettles', 'электрочайники')
-           ]
+# CHOICES = [('other', 'разное'),
+#            ('televisions', 'телевизоры'),
+#            ('refrigerators', 'холодильники'),
+#            ('electric_kettles', 'электрочайники')
+#            ]
 
 
 class CategoryChoices(TextChoices):

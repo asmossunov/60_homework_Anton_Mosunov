@@ -6,23 +6,31 @@
 {% block content %}
 
     <div class="row row-cols-3 row-cols-lg-3 g-2 g-lg-3 justify-content-center">
+
         {% for product in products %}
-            {% if product.state == 'ACTIVE' %}
-            <div class="col between-space">
-              <div class="p-3 border bg-light center-block">
-                  <img class="card-img-top" src="{{ product.product_image }}" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ product.product_name }}</h5>
-                    <p>{{ product.product_category }}</p>
-                    <p class="product-price">Цена: {{ product.price | floatformat:-2 }} $</p>
-                    <div class="card-footer">
-                        <a href="{% url 'product_detail' product.pk %}">узнать подробнее >>> </a>
+            {% if product.remains > 0 %}
+                {% if product.state == 'ACTIVE' %}
+                    <div class="col between-space">
+                       <div class="p-3 border bg-light center-block">
+                          <a href="{% url 'product_detail' product.pk %}"><img class="card-img-top" src="{{ product.product_image }}" alt="Card image cap"></a>
+                          <div class="card-body">
+                            <h5 class="card-title">{{ product.product_name }}</h5>
+                            {% for choice in choices %}
+                                {% if product.product_category == choice.0 %}
+                                    <p class="card-text">{{ choice.1 }}</p>
+                                {% endif%}
+                            {% endfor %}
+                            <p class="product-price">Цена: {{ product.price | floatformat:-2 }} $</p>
+                            <div class="card-footer">
+                                <a href="{% url 'product_detail' product.pk %}">узнать подробнее >>> </a>
+                            </div>
+                          </div>
+                       </div>
                     </div>
-                  </div>
-              </div>
+                {% endif %}
             {% endif %}
-            </div>
         {% endfor %}
+
     </div>
 
 {% endblock %}
