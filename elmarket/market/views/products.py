@@ -3,14 +3,16 @@ from django.urls import reverse
 
 from market.models import Product, CategoryChoices, StateChoices
 
-from market.forms import ProductForm
+from market.forms import ProductForm, FindProductForm
 
 
 def index_view(request):
     if request.method == 'GET':
         products = Product.objects.filter(state='ACTIVE').order_by('-product_category', '-product_name')
+        find_form = FindProductForm()
         context = {
             'products': products,
+            'find_form': find_form,
             'choices': CategoryChoices.choices
         }
         return render(request, 'index.html', context)
@@ -75,4 +77,25 @@ def delete_view(request, pk):
 def confirm_delete(request, pk):
     Product.objects.filter(pk=pk).update(
         state=StateChoices.NOT_ACTIVE)
+    return redirect('index')
+
+
+def find_product_view(request):
+    if request.method == 'GET':
+        product_name = request.GET.get('product_name')
+        product = Product.objects.filter(product_name=product_name)
+        form = ProductForm()
+        find_form = FindProductForm()
+        context = {
+            'answer': 'товар не найден!',
+            'product': product,
+            'choices': CategoryChoices.choices,
+            'find_form': find_form,
+            'form': form
+        }
+        if product:
+            context.pop('answer')
+            return render(request, 'index.html', context)
+        else:
+            return render(request, 'index.html', context)
     return redirect('index')

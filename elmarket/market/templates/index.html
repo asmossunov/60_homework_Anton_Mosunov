@@ -5,6 +5,17 @@
 
 {% block content %}
 
+    <div class="row">
+         <form action="{% url 'find_product' %}" method="GET">
+            {% csrf_token %}
+            <div class="form">
+                {% include 'partials/find_product_form.html' with main_title='Поиск товара:' button_text='Поиск' %}
+            </div>
+         </form>
+    </div>
+    <p class="answer text-center ">{{ answer }}</p>
+
+
     <div class="row row-cols-3 row-cols-lg-3 g-2 g-lg-3 justify-content-center">
 
         {% for product in products %}

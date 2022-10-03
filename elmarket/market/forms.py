@@ -21,3 +21,8 @@ class ProductForm(forms.Form):
         if len(product_name) < 2:
             raise ValidationError('Поле должно быть заполнено более чем одним символом')
         return product_name
+
+
+class FindProductForm(forms.Form):
+    product_name = forms.CharField(max_length=200, required=True, label='Название товара',
+                                   widget=forms.TextInput({'class': 'form-input'}))

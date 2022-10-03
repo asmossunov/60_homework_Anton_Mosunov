@@ -12,7 +12,10 @@
 }
 
 .row{
-    margin-top: 100px;
+    margin-top: 30px;
+}
+.form-label{
+    font-size: 20px;
 }
 
 .card-title{
@@ -61,21 +64,24 @@
 
 
 .main-title-home{
-	background: #2b3f44;
-	background: -webkit-linear-gradient(to bottom, #2b3f44 28%, #6da8b8 70%);
-	background: -moz-linear-gradient(to bottom, #2b3f44 28%, #6da8b8 70%);
-	background: linear-gradient(to bottom, #2b3f44 28%, #6da8b8 70%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
 	padding-top: 50px;
     margin-top: 130px;
-    font-size: 100px;
+    font-size: 50px;
 }
 .text{
     /*-webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);*/
 	/*-moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);*/
 	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
+
+.answer{
+    font-size: 40px;
+    color: white;
+-webkit-text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+-moz-text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
 .about-game{
     margin-bottom: 80px;
     font-size: 25px;
