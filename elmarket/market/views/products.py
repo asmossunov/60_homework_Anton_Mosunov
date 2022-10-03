@@ -8,7 +8,7 @@ from market.forms import ProductForm, FindProductForm
 
 def index_view(request):
     if request.method == 'GET':
-        products = Product.objects.filter(state='ACTIVE').order_by('-product_category', '-product_name')
+        products = Product.objects.filter(state='ACTIVE').order_by('-product_category', 'product_name')
         find_form = FindProductForm()
         context = {
             'products': products,
@@ -83,19 +83,33 @@ def confirm_delete(request, pk):
 def find_product_view(request):
     if request.method == 'GET':
         product_name = request.GET.get('product_name')
-        product = Product.objects.filter(product_name=product_name)
+        products = Product.objects.filter(product_name=product_name)
         form = ProductForm()
         find_form = FindProductForm()
         context = {
             'answer': 'товар не найден!',
-            'product': product,
+            'products': products,
             'choices': CategoryChoices.choices,
             'find_form': find_form,
             'form': form
         }
-        if product:
+        if products:
             context.pop('answer')
             return render(request, 'index.html', context)
         else:
             return render(request, 'index.html', context)
     return redirect('index')
+
+
+def category_view(request, category):
+    products = Product.objects.filter(product_category=category).order_by('product_name')
+    find_form = FindProductForm()
+    # category = category.replace('_', ' ').upper()
+    context = {
+        'category': category,
+        'choices': CategoryChoices.choices,
+        'find_form': find_form,
+        'products': products,
+        'choices': CategoryChoices.choices,
+    }
+    return render(request, 'categories.html', context)

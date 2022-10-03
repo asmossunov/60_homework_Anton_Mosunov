@@ -6,19 +6,20 @@
             </div>
         {% for find in find_form %}
         <div class="row justify-content-center">
-           <div class="col-2">
+           <div class="col-1 title">
                <label class="form-label" for="{{ find.id_for_label }}">{{ find.label}}:</label>
            </div>
-           <div class="col-4">
+           <div class="col-3 title">
                <div class="row-form-errors">{{ find.errors }}</div>
                {{ find }}
            </div>
+            {% endfor %}
+           <div class="col-1">
+            <button type="submit" class="btn btn-secondary btn-block">{{ button_text }}</button>
         </div>
-        {% endfor %}
-        <div class="row justify-content-center">
-            <div class="col-10 text-center">
-                <button type="submit" class="btn btn-secondary btn-block">{{ button_text }}</button>
-            </div>
         </div>
+
+
+
     </div>
 </div>

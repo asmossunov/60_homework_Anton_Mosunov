@@ -10,7 +10,7 @@ class ProductForm(forms.Form):
     product_name = forms.CharField(max_length=200, required=True, label='Название товара',
                                    widget=forms.TextInput({'class': 'form-input'}))
     product_description = forms.CharField(max_length=2000, required=True, label='Описание товара',
-                                          widget=widgets.Textarea)
+                                          widget=widgets.Textarea(attrs={'rows': 3, 'cols': 23}))
     product_image = forms.CharField(max_length=2000, required=True, label='Изображение товара')
     product_category = forms.ChoiceField(choices=CategoryChoices.choices, label='Категория товара')
     price = forms.DecimalField(required=True, label='Стоимость товара')
@@ -24,5 +24,5 @@ class ProductForm(forms.Form):
 
 
 class FindProductForm(forms.Form):
-    product_name = forms.CharField(max_length=200, required=True, label='Название товара',
+    product_name = forms.CharField(max_length=200, required=True, label='Название',
                                    widget=forms.TextInput({'class': 'form-input'}))

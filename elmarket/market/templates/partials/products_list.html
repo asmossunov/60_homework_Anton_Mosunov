@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+         <form action="{% url 'find_product' %}" method="GET">
+            {% csrf_token %}
+            <div class="form">
+                {% include 'partials/find_product_form.html' with main_title='Поиск товара:' button_text='Поиск' %}
+            </div>
+         </form>
+    </div>
+    <p class="answer text-center ">{{ answer }}</p>
+
+    <div class="row category-header justify-content-center">
+        <div class="col-10">
+            {% for choice in choices %}
+                {% if choice.0 == category%}
+                    <p class="category-title text-center">{{ choice.1 }}</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row row-card row-cols-3 row-cols-lg-3 g-2 g-lg-3 justify-content-center">
+        {% for product in products %}
+            {% if product.remains > 0 %}
+                {% if product.state == 'ACTIVE' %}
+                    <div class="col between-space">
+                       <div class="p-3 border bg-light center-block">
+                          <a href="{% url 'product_detail' product.pk %}"><img class="card-img-top" src="{{ product.product_image }}" alt="Card image cap"></a>
+                          <div class="card-body">
+                            <h5 class="card-title">{{ product.product_name }}</h5>
+                            {% for choice in choices %}
+                                {% if product.product_category == choice.0 %}
+                                    <p class="card-text">{{ choice.1 }}</p>
+                                {% endif%}
+                            {% endfor %}
+                            <p class="product-price">Цена: {{ product.price | floatformat:-2 }} $</p>
+                            <div class="card-footer">
+                                <a href="{% url 'product_detail' product.pk %}">узнать подробнее >>> </a>
+                            </div>
+                          </div>
+                       </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
