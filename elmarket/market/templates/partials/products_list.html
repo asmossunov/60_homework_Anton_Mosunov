@@ -36,12 +36,12 @@
                             <h5 class="card-title">{{ product.product_name }}</h5>
                             {% for choice in choices %}
                                 {% if product.product_category == choice.0 %}
-                                    <p class="card-text">{{ choice.1 }}</p>
+                                    <a class="category-link" href="{% url 'list_by_category' choice.0 %}">{{ choice.1 }}</a>
                                 {% endif%}
                             {% endfor %}
                             <p class="product-price">Цена: {{ product.price | floatformat:-2 }} $</p>
                             <div class="card-footer">
-                                <a href="{% url 'product_detail' product.pk %}">узнать подробнее >>> </a>
+                                <a class="detail" href="{% url 'product_detail' product.pk %}">узнать подробнее >>> </a>
                             </div>
                           </div>
                        </div>
