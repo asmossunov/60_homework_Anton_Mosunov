@@ -1,18 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
-from market.models import Product, CategoryChoices
+from market.models import Product, CategoryChoices, StateChoices
 
-from market.forms import ProductForm, CHOICES
+from market.forms import ProductForm
 
 
 def index_view(request):
     if request.method == 'GET':
-        # products = Product.objects.all()
-        products = Product.objects.all().order_by('product_category', 'product_name')
+        products = Product.objects.filter(state='ACTIVE').order_by('-product_category', '-product_name')
         context = {
             'products': products,
-            'choices': CHOICES
+            'choices': CategoryChoices.choices
         }
         return render(request, 'index.html', context)
 
@@ -22,7 +21,7 @@ def product_view(request, pk):
         product = get_object_or_404(Product, pk=pk)
         context = {
             'product': product,
-            'choices': CHOICES,
+            'choices': CategoryChoices.choices,
         }
         return render(request, 'product.html', context)
 
@@ -44,7 +43,6 @@ def add_product_view(request):
 def edit_product_view(request, pk):
     product = get_object_or_404(Product, pk=pk)
     if request.method == 'GET':
-        print(product.product_category)
         form = ProductForm(initial={
             'product_name': product.product_name,
             'state': product.state,
@@ -62,5 +60,19 @@ def edit_product_view(request, pk):
             'product': product
         }
         return render(request, 'edit_product.html', context)
-    task = Product.objects.create(**form.cleaned_data)
-    return redirect('product_detail', pk=task.pk)
+    product = Product.objects.filter(pk=pk).update(**form.cleaned_data)
+    return redirect('product_detail', pk)
+
+
+def delete_view(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    context = {
+        'product': product
+    }
+    return render(request, 'delete_confirm.html', context)
+
+
+def confirm_delete(request, pk):
+    Product.objects.filter(pk=pk).update(
+        state=StateChoices.NOT_ACTIVE)
+    return redirect('index')
