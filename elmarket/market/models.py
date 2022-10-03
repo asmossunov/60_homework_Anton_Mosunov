@@ -3,18 +3,11 @@ from django.db.models import TextChoices
 from django.core.validators import MinValueValidator
 
 
-CHOICES = [('other', 'разное'),
-           ('televisions', 'телевизоры'),
-           ('refrigerators', 'холодильники'),
-           ('electric_kettles', 'электрочайники')
-           ]
-
-
 class CategoryChoices(TextChoices):
-    other = 'разное'
-    televisions = 'телевизоры'
-    refrigerators = 'холодильники'
-    electric_kettles = 'электрочайники'
+    разное = 'other'
+    телевизоры = 'televisions'
+    холодильники = 'refrigerators'
+    электрочайники = 'electric_kettles'
 
 
 class StateChoices(TextChoices):
@@ -29,7 +22,7 @@ class Product(models.Model):
     product_image = models.TextField(verbose_name='Изображение', max_length=3000,
                                      null=False, blank=False)
     product_category = models.CharField(verbose_name=' Товар', choices=CategoryChoices.choices,
-                                        max_length=100, null=False, default=CategoryChoices.choices[0][1])
+                                        max_length=100, null=False, default=CategoryChoices.разное)
     state = models.CharField(verbose_name='Состояние', choices=StateChoices.choices,
                              max_length=100, default=StateChoices.ACTIVE)
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
@@ -37,7 +30,7 @@ class Product(models.Model):
     price = models.DecimalField(verbose_name='Стоимость', max_length=100, max_digits=7,
                                 decimal_places=2)
     remains = models.IntegerField(verbose_name='Остаток', validators=[MinValueValidator(0)],
-                                  max_length=30, null=False, blank=False)
+                                  null=False, blank=False)
 
     def __str__(self):
         return f'{self.product_name} {self.product_description} {self.product_category} ' \
