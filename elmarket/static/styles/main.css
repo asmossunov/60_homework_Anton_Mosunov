@@ -15,10 +15,7 @@
     margin-top: 30px;
     margin-bottom: 20px;
 }
-.row-card{
-    margin-top: 30px;
-    margin-bottom: 100px;
-}
+
 .form-label{
     font-size: 20px;
 }
@@ -88,8 +85,15 @@
     -moz-text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
-.text{
-	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+
+.detail{
+    text-decoration-line: none;
+}
+
+.category-link{
+    font-size: 20px;
+    color: #3f636c;
+    text-decoration-line: none;
 }
 
 .answer{
@@ -100,7 +104,7 @@
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
-.about-game{
+.confirm-answer{
     margin-bottom: 80px;
     font-size: 25px;
     color: #6c6c6c;
@@ -115,21 +119,7 @@
     text-shadow: 2px 2px 1px white;
 }
 
-.info-title{
-    margin-top: 80px;
-    font-size: 30px;
-    color: orange;
-}
 
-.form-control{
-    border: 3px solid grey;
-    text-align: center;
-    color: grey;
-    margin-top: 15px;
-    font-size: 30px;
-    border-radius: 10px;
-    opacity: 0.8
-}
 
 .btn{
     font-size: 20px;
@@ -138,16 +128,7 @@
     padding: 0.7rem 2.5rem;
     border-radius: 2.25rem;
 }
-.text-break{
-    margin-top: 40px;
-    font-size: 30px;
-    color: grey;
-}
-.info-head{
-    margin-top: 60px;
-    font-size: 30px;
-    color: grey;
-}
+
 .category-name{
     font-size: 30px;
     padding-top: 70px;
@@ -162,45 +143,11 @@
     color: #6ea9b9;
 }
 
-.descript-label{
-    margin-top: 57px;
-
-    font-size: 30px;
-    color: #6ea9b9;
-}
-
-.descript_deadline{
-    margin-top: 100px;
-    font-size: 30px;
-    color: #6ea9b9;
-}
-
-.link{
-    text-decoration-line: none;
-}
-
 .info-item{
     text-decoration-line: none;
     margin-top: 60px;
     font-size: 30px;
     color: grey;
-}
-
-.info-block{
-    /*overflow-x:hidden;*/
-    padding: 10px 8px 10px 10px;
-    /*margin-top: 10px;*/
-	-webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-	-moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-}
-
-.info-block-link{
-    padding: 10px 8px 10px 10px;
-    /*margin-top: 10px;*/
-	-webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-	-moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
-	box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 .info-block-link:hover {
@@ -211,27 +158,6 @@
     transition: margin-top 130ms;
   box-shadow: 0 10px 90px rgba(0, 0, 0, 0.4);
 }
-
-.form-center{
-    margin: auto;
-    padding-top: 20px;
-}
-
-.form-check, form-check-input{
-    padding: 15px;
-    font-size: 25px;
-    color: #6c6c6c;
-    text-shadow: 2px 2px 1px white;
-}
-
-.form-check-input-without-block{
-    padding: 15px;
-    font-size: 25px;
-    color: #6c6c6c;
-}
-
-
-
 
 body {
 
