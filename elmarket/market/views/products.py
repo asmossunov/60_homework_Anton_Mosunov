@@ -104,7 +104,6 @@ def find_product_view(request):
 def category_view(request, category):
     products = Product.objects.filter(product_category=category).order_by('product_name')
     find_form = FindProductForm()
-    # category = category.replace('_', ' ').upper()
     context = {
         'category': category,
         'choices': CategoryChoices.choices,
