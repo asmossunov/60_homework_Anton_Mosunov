@@ -4,15 +4,10 @@ from django.core.validators import MinValueValidator
 
 
 class CategoryChoices(TextChoices):
-    разное = 'other'
-    телевизоры = 'televisions'
-    холодильники = 'refrigerators'
-    электрочайники = 'electric_kettles'
-
-
-class StateChoices(TextChoices):
-    ACTIVE = 'ACTIVE'
-    NOT_ACTIVE = 'NOT_ACTIVE'
+    OTHER = 'other', 'разное'
+    TELEVISIONS = 'televisions', 'телевизоры'
+    REFRIGERATORS = 'refrigerators', 'холодильники'
+    ELECTRIC_KETTLES = 'electric_kettles', 'электрочайники'
 
 
 class Product(models.Model):
@@ -22,9 +17,8 @@ class Product(models.Model):
     product_image = models.TextField(verbose_name='Изображение', max_length=3000,
                                      null=False, blank=False)
     product_category = models.CharField(verbose_name=' Товар', choices=CategoryChoices.choices,
-                                        max_length=100, null=False, default=CategoryChoices.разное)
-    state = models.CharField(verbose_name='Состояние', choices=StateChoices.choices,
-                             max_length=100, default=StateChoices.ACTIVE)
+                                        max_length=100, null=False, default=CategoryChoices.OTHER)
+    is_deleted = models.BooleanField(verbose_name='Удалено', default=False, null=False)
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
     changed_at = models.DateTimeField(verbose_name='Дата изменения', auto_now=True)
     price = models.DecimalField(verbose_name='Стоимость', max_length=100, max_digits=7,

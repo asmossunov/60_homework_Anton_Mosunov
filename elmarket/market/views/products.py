@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 
-from market.models import Product, CategoryChoices, StateChoices
+from market.models import Product, CategoryChoices
 
 from market.forms import ProductForm, FindProductForm
 
 
 def index_view(request):
     if request.method == 'GET':
-        products = Product.objects.filter(state='ACTIVE').order_by('-product_category', 'product_name')
+        products = Product.objects.filter(is_deleted=True).order_by('-product_category', 'product_name')
         find_form = FindProductForm()
         context = {
             'products': products,
@@ -76,7 +76,7 @@ def delete_view(request, pk):
 
 def confirm_delete(request, pk):
     Product.objects.filter(pk=pk).update(
-        state=StateChoices.NOT_ACTIVE)
+        is_deleted=True)
     return redirect('index')
 
 
