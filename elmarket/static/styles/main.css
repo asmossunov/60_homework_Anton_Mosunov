@@ -204,3 +204,7 @@ body {
 .menu a:hover {
     color: #bbd6dc;
 }
+
+.up{
+    padding-top: 160px;
+}

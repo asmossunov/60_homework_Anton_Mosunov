@@ -3,19 +3,19 @@ from django.urls import reverse
 
 from market.models import Product, CategoryChoices
 
-from market.forms import ProductForm, FindProductForm
+from market.forms import ProductForm
 
 
-def index_view(request):
-    if request.method == 'GET':
-        products = Product.objects.filter(is_deleted=True).order_by('-product_category', 'product_name')
-        find_form = FindProductForm()
-        context = {
-            'products': products,
-            'find_form': find_form,
-            'choices': CategoryChoices.choices
-        }
-        return render(request, 'index.html', context)
+# def index_view(request):
+#     if request.method == 'GET':
+#         products = Product.objects.filter(is_deleted=False).order_by('-product_category', 'product_name')
+#         find_form = FindProductForm()
+#         context = {
+#             'products': products,
+#             'find_form': find_form,
+#             'choices': CategoryChoices.choices
+#         }
+#         return render(request, 'index.html', context)
 
 
 def product_view(request, pk):

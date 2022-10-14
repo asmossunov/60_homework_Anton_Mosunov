@@ -1,1 +1,22 @@
-{% include 'partials/products_list.html' %}
+{% extends 'base.html' %}
+
+{% block menu %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-5 search-form">
+            {% include 'partials/search.html' %}
+        </div>
+    </div>
+    {% include 'partials/products_list.html' %}
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            {% if is_paginated %}
+                {% include 'partials/pagination.html' %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

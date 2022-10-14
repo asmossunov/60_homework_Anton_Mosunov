@@ -23,6 +23,5 @@ class ProductForm(forms.Form):
         return product_name
 
 
-class FindProductForm(forms.Form):
-    product_name = forms.CharField(max_length=200, required=True, label='Название',
-                                   widget=forms.TextInput({'class': 'form-input'}))
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=100, required=False, label='Найти')
