@@ -1,0 +1,11 @@
+
+{% for f in product_to_cart_form %}
+<form class="text-center" action="{% url 'add_product_in_cart' product.pk %}" method="GET">
+    <label for="{{ f.id_for_label }}">{{ f.label }}:</label>
+    {% for error in f.errors %}
+        <p class="form-error">{{ f.error }}</p>
+        {{ f }}
+
+    {% endfor %}
+</form>
+{% endfor %}

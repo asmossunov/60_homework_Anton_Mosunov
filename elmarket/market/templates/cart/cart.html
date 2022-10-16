@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+    <div class="box">
+    <br>
+    <br>
+    <br>
+
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Продукт</th>
+      <th scope="col">Количество</th>
+      <th scope="col">Цена</th>
+      <th scope="col">Сумма</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+    <tr>
+      <th scope="row"></th>
+      <td>{{ product.product.product_name }}</td>
+      <td>{{ product.count }}</td>
+      <td>{{ product.product.price }}</td>
+
+      <td>{% widthratio product.count 1 product.product.price %}</td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+    <tfoot>
+    <tr>
+      <th>Total</th>
+      <td>${{ total|floatformat:2 }}</td>
+    </tr>
+  </tfoot>
+
+</table>
+</div>
+
+
+{% endblock %}

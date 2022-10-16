@@ -1,104 +1,84 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView, DetailView
 
 from market.models import Product, CategoryChoices
 
 from market.forms import ProductForm
 
+from market.forms import AddProductToCartForm
 
-# def index_view(request):
-#     if request.method == 'GET':
-#         products = Product.objects.filter(is_deleted=False).order_by('-product_category', 'product_name')
-#         find_form = FindProductForm()
-#         context = {
-#             'products': products,
-#             'find_form': find_form,
-#             'choices': CategoryChoices.choices
-#         }
-#         return render(request, 'index.html', context)
+from market.models import ProductInCart
 
 
-def product_view(request, pk):
-    if request.method == 'GET':
-        product = get_object_or_404(Product, pk=pk)
-        context = {
-            'product': product,
-            'choices': CategoryChoices.choices,
-        }
-        return render(request, 'product.html', context)
-
-def add_product_view(request):
-    form = ProductForm()
-    if request.method == 'GET':
-        context = {'form': form}
-        return render(request, 'add_product.html', context)
-    form = ProductForm(request.POST)
-    if not form.is_valid():
-        context = {
-            'form': form
-        }
-        return render(request, 'add_product.html', context)
-    product = Product.objects.create(**form.cleaned_data)
-    return redirect('product_detail', pk=product.pk)
+class SuccessDetailUrlMixin:
+    def get_success_url(self):
+        return reverse('product_detail', kwargs={'pk': self.object.pk})
 
 
-def edit_product_view(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    if request.method == 'GET':
-        form = ProductForm(initial={
-            'product_name': product.product_name,
-            'state': product.state,
-            'product_description': product.product_description,
-            'product_image': product.product_image,
-            'product_category': product.product_category,
-            'price': product.price,
-            'remains': product.remains
-        })
-        return render(request, 'edit_product.html', context={'form': form, 'product': product})
-    form = ProductForm(request.POST)
-    if not form.is_valid():
-        context = {
-            'form': form,
-            'product': product
-        }
-        return render(request, 'edit_product.html', context)
-    product = Product.objects.filter(pk=pk).update(**form.cleaned_data)
-    return redirect('product_detail', pk)
+class ProductView(DetailView):
+    template_name = 'product.html'
+    model = Product
+
+    def get(self, request, *args, **kwargs):
+        self.product_to_cart_form = AddProductToCartForm(self.request.GET)
+        self.product_to_cart_value = self.get_product_to_cart()
+        return super().get(request, *args, **kwargs)
+
+    def get_product_to_cart(self):
+        if self.product_to_cart_form.is_valid():
+            return self.product_to_cart_form.cleaned_data.get('count')
+        return None
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if self.product_to_cart_value:
+            product_id = self.kwargs.get('pk')
+            count = self.product_to_cart_value
+            product = Product.objects.get(id=product_id)
+            if product.remains >= count:
+                if ProductInCart.objects.filter(product=product).exists():
+                    product_in_cart = ProductInCart.objects.get(product_id=product_id)
+                    counter = product_in_cart.count + count
+                    ProductInCart.objects.filter(product_id=product_id).update(count=counter)
+                    new_level = product.remains - count
+                    Product.objects.filter(id=product_id).update(remains=new_level)
+                else:
+                    ProductInCart.objects.create(product_id=product_id, count=count)
+                product.remains -= count
+            else:
+                self.answer = 'слишком большое значение'
+                return queryset
+        return queryset
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        # queryset = self.get_queryset()
+        context = super(ProductView, self).get_context_data(object_list=object_list, **kwargs)
+        product = get_object_or_404(Product, pk=self.kwargs.get('pk'))
+        context['product_to_cart_form'] = self.product_to_cart_form
+        context['choices'] = CategoryChoices.choices
+        context['product'] = product
+        return context
 
 
-def delete_view(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    context = {
-        'product': product
-    }
-    return render(request, 'delete_confirm.html', context)
+class ProductCreateView(SuccessDetailUrlMixin, CreateView):
+    template_name = 'add_product.html'
+    form_class = ProductForm
+    model = Product
 
 
-def confirm_delete(request, pk):
-    Product.objects.filter(pk=pk).update(
-        is_deleted=True)
-    return redirect('index')
+class ProductUpdateView(SuccessDetailUrlMixin, UpdateView):
+    template_name = 'edit_product.html'
+    form_class = ProductForm
+    model = Product
+    context_object_name = 'product'
 
 
-def find_product_view(request):
-    if request.method == 'GET':
-        product_name = request.GET.get('product_name')
-        products = Product.objects.filter(product_name=product_name)
-        form = ProductForm()
-        find_form = FindProductForm()
-        context = {
-            'answer': 'товар не найден!',
-            'products': products,
-            'choices': CategoryChoices.choices,
-            'find_form': find_form,
-            'form': form
-        }
-        if products:
-            context.pop('answer')
-            return render(request, 'index.html', context)
-        else:
-            return render(request, 'index.html', context)
-    return redirect('index')
+class ProductDeleteView(DeleteView):
+    template_name = 'delete_confirm.html'
+    model = Product
+    success_url = reverse_lazy('index')
+
 
 
 def category_view(request, category):

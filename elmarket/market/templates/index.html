@@ -1,15 +1,12 @@
-{% extends 'base.html' %}
 
-{% block menu %}
-
-{% endblock %}
-
-{% block content %}
     <div class="row justify-content-center">
         <div class="col-5 search-form">
             {% include 'partials/search.html' %}
         </div>
     </div>
+    {% if answer is not None %}
+            <h1 class="answer" style="color: red">{{ answer }}</h1>
+    {% endif %}
     {% include 'partials/products_list.html' %}
 
     <div class="row justify-content-center">
@@ -19,4 +16,3 @@
             {% endif %}
         </div>
     </div>
-{% endblock %}
