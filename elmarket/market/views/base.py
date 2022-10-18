@@ -18,7 +18,7 @@ class ProductsIndexView(ListView):
     template_name = 'index.html'
     model = Product
     context_object_name = 'products'
-    ordering = ('-created_at',)
+    ordering = ('-product_category', 'product_name')
     paginate_by = 6
     paginate_orphans = 0
     answer = None
