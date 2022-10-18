@@ -20,7 +20,6 @@ urlpatterns = [
     path('cart/', CartView.as_view(), name='cart_open'),
     path('cart/<int:pk>/delete', CartProductDeleteView.as_view(), name='delete_from_cart'),
     path('cart/create_order', OrderCreateView.as_view(), name='order_add'),
-    # path('products/find/', find_product_view, name='find_product'),
     path('products/<str:category>', category_view, name='list_by_category'),
 
 ]

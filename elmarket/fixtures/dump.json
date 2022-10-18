@@ -1,462 +1,317 @@
 [
 {
-  "model": "admin.logentry",
-  "pk": 1,
-  "fields": {
-    "action_time": "2022-09-30T07:11:43.391Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "1",
-    "object_repr": "Sony 42KDS Широкоформатный телевизор телевизоры 2500.00 12 2022-09-30 07:08:38.146398+00:00 2022-09-30 07:08:38.146451+00:00",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 2,
-  "fields": {
-    "action_time": "2022-09-30T15:53:11.609Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "7",
-    "object_repr": "Ведро FXCVXCBXCVB electric_kettles 5000.00 45 2022-09-30 15:46:38.253147+00:00 2022-09-30 15:46:38.253218+00:00",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 3,
-  "fields": {
-    "action_time": "2022-09-30T15:53:11.616Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "6",
-    "object_repr": "BOSCH TWK70B03 Bosch TWK70B03 – электрочайник с мощным нагревательным элементом 2 400 Вт. Вам не придётся долго ждать, пока будет готов кипяток. Благодаря корпусу из прозрачного термостойкого стекла э",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 4,
-  "fields": {
-    "action_time": "2022-09-30T15:53:11.620Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "5",
-    "object_repr": "BOSCH TWK70B03 https://object.pscloud.io/cms/cms/Photo/img_0_35_578_1.jpg электрочайники 100.00 5 2022-09-30 11:23:05.772735+00:00 2022-09-30 11:23:05.772766+00:00",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 5,
-  "fields": {
-    "action_time": "2022-09-30T15:53:11.624Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "4",
-    "object_repr": "ыввыаыв аываываыв холодильники 100.20 3 2022-09-30 11:20:57.948668+00:00 2022-09-30 11:20:57.948758+00:00",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
-  "pk": 6,
-  "fields": {
-    "action_time": "2022-09-30T15:53:11.628Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "3",
-    "object_repr": "SONY KD65X81JR TRILUMINOS PRO™ и наш 4K2 HDR процессор X1™ передают более миллиарда цветов. С высокой контрастностью картинка на экране будто оживает. телевизоры 2500.00 2 2022-09-30 08:32:12.582000+0",
-    "action_flag": 3,
-    "change_message": ""
-  }
-},
-{
-  "model": "admin.logentry",
+  "model": "market.product",
   "pk": 7,
   "fields": {
-    "action_time": "2022-09-30T15:53:11.632Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "2",
-    "object_repr": "SONY KD65X81JR TRILUMINOS PRO™ и наш 4K2 HDR процессор X1™ передают более миллиарда цветов. С высокой контрастностью картинка на экране будто оживает. телевизоры 2500.00 2 2022-09-30 08:31:55.723000+0",
-    "action_flag": 3,
-    "change_message": ""
+    "product_name": "LG 65UP7800",
+    "product_description": "Настоящий 4K UHD.\r\nНереальное погружение.\r\nТелевизоры LG UHD превосходят все ваши ожидания. Наслаждайтесь живым изображением и реалистичной цветопередачей благодаря большей, чем в Full HD, точности пикселей.",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_25_1183_3_6.webp",
+    "product_category": "refrigerators",
+    "is_deleted": false,
+    "created_at": "2022-10-18T09:52:26.019Z",
+    "changed_at": "2022-10-18T10:14:29.936Z",
+    "price": "1000.00",
+    "remains": 10
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "market.product",
   "pk": 8,
   "fields": {
-    "action_time": "2022-09-30T15:53:11.635Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "1",
-    "object_repr": "ARG CA-250XT ddfdfsdfsdf Other 700.00 6 2022-09-30 08:30:54.170000+00:00 2022-09-30 08:30:54.170000+00:00",
-    "action_flag": 3,
-    "change_message": ""
+    "product_name": "Haier LE50K6700UG",
+    "product_description": "Диагональ экрана: 50″ - 127 см / Разрешение: 3840x2160 (4K UHD) / Smart TV: Да / Поддержка HDR: Да / Wi-Fi: Есть (встроенный) / Соотношение сторон: 16:9 / Тип экрана: Прямой / Тип подсветки: LED / Технологии улучшения звука: Nicam",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_95_1411_4.jpg",
+    "product_category": "televisions",
+    "is_deleted": false,
+    "created_at": "2022-10-18T09:53:34.077Z",
+    "changed_at": "2022-10-18T09:53:34.077Z",
+    "price": "800.00",
+    "remains": 14
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "market.product",
   "pk": 9,
   "fields": {
-    "action_time": "2022-09-30T16:09:49.412Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "13",
-    "object_repr": "edfvdfbv ewrfwerfwerf electric_kettles 200.00 34 2022-09-30 16:08:00.853975+00:00 2022-09-30 16:08:00.854069+00:00",
-    "action_flag": 3,
-    "change_message": ""
+    "product_name": "Xiaomi L55M6",
+    "product_description": "Диагональ экрана: 55″ - 139,7см / Разрешение: 3840x2160 (4K UHD) / Smart TV: Да / Поддержка HDR: Да / Wi-Fi: Есть (встроенный) / Соотношение сторон: 16:9 / Тип экрана: Прямой / Тип подсветки: LED / Технологии улучшения звука: Dolby",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2120_0_1.jpg",
+    "product_category": "televisions",
+    "is_deleted": false,
+    "created_at": "2022-10-18T09:54:34.255Z",
+    "changed_at": "2022-10-18T09:54:34.255Z",
+    "price": "900.00",
+    "remains": 8
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "market.product",
   "pk": 10,
   "fields": {
-    "action_time": "2022-09-30T16:09:49.420Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "12",
-    "object_repr": "esdcsdcsd ewrfwerfwerf other 200.00 34 2022-09-30 16:03:07.622273+00:00 2022-09-30 16:03:07.622329+00:00",
-    "action_flag": 3,
-    "change_message": ""
+    "product_name": "ARG 32SH90G",
+    "product_description": "Телевизор ARG идеальный вариант для вашей гостиной. Он отлично смотрится на стене, а его тонкая еле заметная рамка позволит полностью сосредоточиться на изображении и не будет отвлекать от просмотра. Оцените поразительное качество изображения в разрешении 1366x768 пикселей, что бы вы ни смотрели. Уникальный процессор обработки изображений обрабатывает и улучшает качество изображения, насыщая каждый кадр новыми деталями.",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2103_2_1.jpg",
+    "product_category": "televisions",
+    "is_deleted": false,
+    "created_at": "2022-10-18T09:55:40.090Z",
+    "changed_at": "2022-10-18T09:55:40.090Z",
+    "price": "200.00",
+    "remains": 15
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "market.product",
   "pk": 11,
   "fields": {
-    "action_time": "2022-09-30T16:09:49.425Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "11",
-    "object_repr": "e ewrfwerfwerf other 200.00 34 2022-09-30 16:01:43.227618+00:00 2022-09-30 16:01:43.227656+00:00",
-    "action_flag": 3,
-    "change_message": ""
+    "product_name": "Electrofrost 128",
+    "product_description": "С капельной системой разморозки ухаживать за холодильной камерой легко: все, что от вас требуется — время от времени сливать скопившуюся в резервуаре воду. Благодаря вместительности холодильника в 285 литров (80 литров вмещает морозильная камера, а холодильная - 205 литров) вы сохраните недельный запас пищи.",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_25_961_0_6.png",
+    "product_category": "refrigerators",
+    "is_deleted": false,
+    "created_at": "2022-10-18T09:56:50.787Z",
+    "changed_at": "2022-10-18T09:56:50.787Z",
+    "price": "300.00",
+    "remains": 8
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "market.product",
   "pk": 12,
   "fields": {
-    "action_time": "2022-09-30T16:09:49.430Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "10",
-    "object_repr": "erfwerf ewrfwerfwerf other 200.00 34 2022-09-30 16:01:30.751273+00:00 2022-09-30 16:01:30.751359+00:00",
-    "action_flag": 3,
-    "change_message": ""
+    "product_name": "Samsung RT53K6510EF",
+    "product_description": "олько система Twin Cooling Plus™ создает в холодильнике благоприятную среду для хранения свежих продуктов при 70% уровне влажности, в отличие от традиционных TMF, которые обеспечивают лишь 30% уровень влажности. Таким образом, данная технология позволяет дольше сохранять свежесть продуктов, не вызывая их высыхание.",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_25_438_3.webp",
+    "product_category": "refrigerators",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:00:52.990Z",
+    "changed_at": "2022-10-18T10:00:52.990Z",
+    "price": "1000.00",
+    "remains": 2
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "market.product",
   "pk": 13,
   "fields": {
-    "action_time": "2022-09-30T16:09:49.434Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "9",
-    "object_repr": "erfwerf ewrfwerfwerf televisions 200.00 34 2022-09-30 15:59:23.099709+00:00 2022-09-30 15:59:23.099799+00:00",
-    "action_flag": 3,
-    "change_message": ""
+    "product_name": "Samsung RB33A32N0SA/WT",
+    "product_description": "Объем (общий/полезный): 350/328 л / Класс энергопотребления: A+ / Страна производителя: Узбекистан / Система размораживания (Холодильная камера): No Frost / Система размораживания (Морозильная камера): No Frost /",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_25_1185_2_1.jpg",
+    "product_category": "refrigerators",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:10:35.560Z",
+    "changed_at": "2022-10-18T10:10:35.560Z",
+    "price": "450.00",
+    "remains": 3
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "market.product",
   "pk": 14,
   "fields": {
-    "action_time": "2022-09-30T16:09:49.439Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "8",
-    "object_repr": "erfwerf ewrfwerfwerf other 200.00 34 2022-09-30 15:59:08.331760+00:00 2022-09-30 15:59:08.331834+00:00",
-    "action_flag": 3,
-    "change_message": ""
+    "product_name": "ARG KG-1302E",
+    "product_description": "Мощность: 2200 Вт / Объем: 2 л. / Тип нагревательного элемента: Скрытый (спираль) / Управление со смартфона: Нет / Страна производителя: Китай / Защита от включения без воды: Да / Отключение при снятии с подставки: Да / Подсветка: Да",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_35_730_0_1.jpg",
+    "product_category": "electric_kettles",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:16:28.147Z",
+    "changed_at": "2022-10-18T10:16:28.147Z",
+    "price": "50.00",
+    "remains": 16
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "market.product",
   "pk": 15,
   "fields": {
-    "action_time": "2022-10-03T10:38:15.765Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "2",
-    "object_repr": "Ведро dfsdfsdfas other 200.00 4 2022-10-03 06:57:48.180078+00:00 2022-10-03 06:57:48.180122+00:00",
-    "action_flag": 3,
-    "change_message": ""
+    "product_name": "ARG CA-250XT",
+    "product_description": "ощность: 2200 Вт / Объем: 2,5 л. / Тип нагревательного элемента: Скрытый / Управление со смартфона: Нет / Страна производителя: Китай / Отключение при снятии с подставки: Да / Подсветка: Да / Фильтр от накипи: Да / Особенности:",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_35_401_0.webp",
+    "product_category": "electric_kettles",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:17:11.557Z",
+    "changed_at": "2022-10-18T10:17:11.557Z",
+    "price": "40.00",
+    "remains": 20
   }
 },
 {
-  "model": "admin.logentry",
+  "model": "market.product",
   "pk": 16,
   "fields": {
-    "action_time": "2022-10-03T10:38:15.771Z",
-    "user": 1,
-    "content_type": 7,
-    "object_id": "1",
-    "object_repr": "Телевизор fgdgbfbfdbdfbgdf televisions 20000.00 3 2022-10-03 06:03:33.588266+00:00 2022-10-03 06:03:33.588293+00:00",
-    "action_flag": 3,
-    "change_message": ""
+    "product_name": "ARG W-K17602SH",
+    "product_description": "",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_35_615_0_1.webp",
+    "product_category": "electric_kettles",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:17:40.585Z",
+    "changed_at": "2022-10-18T10:17:40.585Z",
+    "price": "45.00",
+    "remains": 10
   }
 },
 {
-  "model": "auth.permission",
-  "pk": 1,
-  "fields": {
-    "name": "Can add log entry",
-    "content_type": 1,
-    "codename": "add_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 2,
-  "fields": {
-    "name": "Can change log entry",
-    "content_type": 1,
-    "codename": "change_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 3,
-  "fields": {
-    "name": "Can delete log entry",
-    "content_type": 1,
-    "codename": "delete_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 4,
-  "fields": {
-    "name": "Can view log entry",
-    "content_type": 1,
-    "codename": "view_logentry"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 5,
-  "fields": {
-    "name": "Can add permission",
-    "content_type": 2,
-    "codename": "add_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 6,
-  "fields": {
-    "name": "Can change permission",
-    "content_type": 2,
-    "codename": "change_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 7,
-  "fields": {
-    "name": "Can delete permission",
-    "content_type": 2,
-    "codename": "delete_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 8,
-  "fields": {
-    "name": "Can view permission",
-    "content_type": 2,
-    "codename": "view_permission"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 9,
-  "fields": {
-    "name": "Can add group",
-    "content_type": 3,
-    "codename": "add_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 10,
-  "fields": {
-    "name": "Can change group",
-    "content_type": 3,
-    "codename": "change_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 11,
-  "fields": {
-    "name": "Can delete group",
-    "content_type": 3,
-    "codename": "delete_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 12,
-  "fields": {
-    "name": "Can view group",
-    "content_type": 3,
-    "codename": "view_group"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 13,
-  "fields": {
-    "name": "Can add user",
-    "content_type": 4,
-    "codename": "add_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 14,
-  "fields": {
-    "name": "Can change user",
-    "content_type": 4,
-    "codename": "change_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 15,
-  "fields": {
-    "name": "Can delete user",
-    "content_type": 4,
-    "codename": "delete_user"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 16,
-  "fields": {
-    "name": "Can view user",
-    "content_type": 4,
-    "codename": "view_user"
-  }
-},
-{
-  "model": "auth.permission",
+  "model": "market.product",
   "pk": 17,
   "fields": {
-    "name": "Can add content type",
-    "content_type": 5,
-    "codename": "add_contenttype"
+    "product_name": "Bosch TWK7S05",
+    "product_description": "Стильный, надежный и безопасный – это все об электрическом чайнике Bosch TWK7S05. Он станет центром внимания любой кухни, поскольку оформлен с использованием элементов из нержавеющей стали и силиконовых вставок. Мощность прибора составляет 2200 Вт, объем – 1,7 л. Существует возможность нагрева воды для приготовления одной чашки любимого напитка (0,25 л), что позволяет экономить электроэнергию. Безопасность работы прибора обеспечивается функциями автоматического отключения, отключения при снятии чайника с цоколя, защитой от перегрева.",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_35_362_2.webp",
+    "product_category": "electric_kettles",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:18:47.237Z",
+    "changed_at": "2022-10-18T10:18:47.237Z",
+    "price": "60.00",
+    "remains": 9
   }
 },
 {
-  "model": "auth.permission",
+  "model": "market.product",
   "pk": 18,
   "fields": {
-    "name": "Can change content type",
-    "content_type": 5,
-    "codename": "change_contenttype"
+    "product_name": "Vitek VT 7062",
+    "product_description": "",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_35_641_0_6.webp",
+    "product_category": "electric_kettles",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:19:35.620Z",
+    "changed_at": "2022-10-18T10:19:35.620Z",
+    "price": "35.00",
+    "remains": 10
   }
 },
 {
-  "model": "auth.permission",
+  "model": "market.product",
   "pk": 19,
   "fields": {
-    "name": "Can delete content type",
-    "content_type": 5,
-    "codename": "delete_contenttype"
+    "product_name": "Adguard 1 (Android)",
+    "product_description": "dGuard блокирует все виды рекламы. Забудьте о всплывающих окнах, видеорекламе, баннерах и прочем. Благодаря незаметной фильтрации в фоновом режиме и косметической обработке, всё, что вы увидите — это чистые страницы с интересующим вас контентом.",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_1612_19_0.webp",
+    "product_category": "other",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:20:47.284Z",
+    "changed_at": "2022-10-18T10:33:21.902Z",
+    "price": "10.00",
+    "remains": 19
   }
 },
 {
-  "model": "auth.permission",
+  "model": "market.product",
   "pk": 20,
   "fields": {
-    "name": "Can view content type",
-    "content_type": 5,
-    "codename": "view_contenttype"
+    "product_name": "TV \"Минимум + ivi\"",
+    "product_description": "- Первое включение. Базовая настройка устройства\r\n- Демонстрация и краткий инструктаж по проведённым работам\r\n- Подключение и настройка мультимедийного жесткого диска (при наличии)\r\n- Гарантия на все работы 6 месяцев\r\n- Регистрация учетной записи для магазина приложений/виджетов\r\n- Обучение Покупателя - \"как настроить Интернет на телевизоре дома\" + абонемент на онлайн кинотеатр ivi",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_1585_15_0_6.webp",
+    "product_category": "other",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:22:01.407Z",
+    "changed_at": "2022-10-18T10:22:01.407Z",
+    "price": "75.00",
+    "remains": 4
   }
 },
 {
-  "model": "auth.permission",
+  "model": "market.product",
   "pk": 21,
   "fields": {
-    "name": "Can add session",
-    "content_type": 6,
-    "codename": "add_session"
+    "product_name": "Ресанта ОМПТ-12Н",
+    "product_description": "Надежный источник тепла для каждого дома\r\nМасляные радиаторы, представленные сегодня на рынке, состоят из специальных секций, заполненных минеральным маслом, которое разогревается при помощи электронагревателя. Основным критерием выбора, наряду с мощностью самого устройства, является также количество секций из которых состоит аппарат, ведь чем их больше, тем обширнее площадь соприкосновения греющей поверхности с воздухом и, соответственно, выше интенсивность теплообмена.",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_19_168_0_1.webp",
+    "product_category": "other",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:22:56.144Z",
+    "changed_at": "2022-10-18T10:22:56.144Z",
+    "price": "55.00",
+    "remains": 57
   }
 },
 {
-  "model": "auth.permission",
+  "model": "market.product",
   "pk": 22,
   "fields": {
-    "name": "Can change session",
-    "content_type": 6,
-    "codename": "change_session"
+    "product_name": "PS4 Cyberpunk 2077",
+    "product_description": "Cyberpunk 2077 — приключенческая ролевая игра, действие которой происходит в мегаполисе Найт-Сити, где власть, роскошь и модификации тела ценятся выше всего. Вы играете за V, наёмника в поисках устройства, позволяющего обрести бессмертие. Вы сможете менять киберимпланты, навыки и стиль игры своего персонажа, исследуя открытый мир, где ваши поступки влияют на ход сюжета и всё, что вас окружает.",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_118_662_0_1.webp",
+    "product_category": "other",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:24:07.401Z",
+    "changed_at": "2022-10-18T10:24:07.401Z",
+    "price": "25.00",
+    "remains": 29
   }
 },
 {
-  "model": "auth.permission",
+  "model": "market.product",
   "pk": 23,
   "fields": {
-    "name": "Can delete session",
-    "content_type": 6,
-    "codename": "delete_session"
+    "product_name": "Tianxun MD-6350",
+    "product_description": "Металлоискатель MD-6350 обладает высокой чувствительностью и позволяет находить черные, цветные металлы и монеты находящиеся в земле на глубине до 1 м. Это полная копия популярного металлоискателя ACE - 250. Различает разные типы металлов, что позволяет искать только то, что сами выберете. Обнаружение предметов: металл (гвозди, жесть, алюминий, монеты, золото, бронза, серебро).",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_4029_5_0_1.webp",
+    "product_category": "other",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:26:00.646Z",
+    "changed_at": "2022-10-18T10:26:00.646Z",
+    "price": "2000.00",
+    "remains": 2
   }
 },
 {
-  "model": "auth.permission",
+  "model": "market.product",
   "pk": 24,
   "fields": {
-    "name": "Can view session",
-    "content_type": 6,
-    "codename": "view_session"
+    "product_name": "Hoco U39 Micro USB",
+    "product_description": "Продуманная конструкция и стильный эргономичный дизайн\r\nHoco U39 Slender Charging Data Cable - очень прочный и гибкий USB кабель для быстрой зарядки и передачи данных в красивой двухцветной нейлоновой оплетке. Коннекторы из алюминиевого сплава и позолоченные контакты повышают срок службы кабеля и надежность соединения.",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_834_463_0_6.webp",
+    "product_category": "other",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:26:59.409Z",
+    "changed_at": "2022-10-18T10:29:25.546Z",
+    "price": "5.00",
+    "remains": 22
   }
 },
 {
-  "model": "auth.permission",
+  "model": "market.product",
   "pk": 25,
   "fields": {
-    "name": "Can add product",
-    "content_type": 7,
-    "codename": "add_product"
+    "product_name": "Sven PS-650",
+    "product_description": "",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_484_444_0_1.webp",
+    "product_category": "other",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:27:54.677Z",
+    "changed_at": "2022-10-18T10:27:54.677Z",
+    "price": "50.00",
+    "remains": 7
   }
 },
 {
-  "model": "auth.permission",
+  "model": "market.product",
   "pk": 26,
   "fields": {
-    "name": "Can change product",
-    "content_type": 7,
-    "codename": "change_product"
+    "product_name": "Tefal KO693110",
+    "product_description": "Мощность: 1800 Вт / Объем: 1,5 л. / Тип нагревательного элемента: Скрытый (диск) / Управление со смартфона: Нет / Страна производителя: Китай / Защита от включения без воды: Да / Отключение при снятии с подставки: Да / Подсветка:",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_35_683_4_1.jpg",
+    "product_category": "electric_kettles",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:37:41.461Z",
+    "changed_at": "2022-10-18T10:37:41.461Z",
+    "price": "35.00",
+    "remains": 9
   }
 },
 {
-  "model": "auth.permission",
+  "model": "market.product",
   "pk": 27,
   "fields": {
-    "name": "Can delete product",
-    "content_type": 7,
-    "codename": "delete_product"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 28,
-  "fields": {
-    "name": "Can view product",
-    "content_type": 7,
-    "codename": "view_product"
+    "product_name": "LG 49UM7100PLB",
+    "product_description": "ехнология LG ThinQ AI открывает много новых возможностей для голосового управления. Распознавание разговорной речи позволяет поддерживать диалог с телевизором и получать индивидуальные рекомендации в соответствии с вашими предпочтениями.",
+    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_95_1496_5.webp",
+    "product_category": "televisions",
+    "is_deleted": false,
+    "created_at": "2022-10-18T10:39:17.068Z",
+    "changed_at": "2022-10-18T10:39:17.068Z",
+    "price": "350.00",
+    "remains": 3
   }
 },
 {
@@ -464,7 +319,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$260000$kAydoitIUP7lT3UiE4nssY$vaDmUYF1MSbaQJERAsLRUmfbf2k0ShY/6rq7Nqu3uxA=",
-    "last_login": "2022-10-03T10:38:04.886Z",
+    "last_login": "2022-10-15T14:04:45.428Z",
     "is_superuser": true,
     "username": "root",
     "first_name": "",
@@ -475,206 +330,6 @@
     "date_joined": "2022-09-30T06:57:09.993Z",
     "groups": [],
     "user_permissions": []
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 1,
-  "fields": {
-    "app_label": "admin",
-    "model": "logentry"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 2,
-  "fields": {
-    "app_label": "auth",
-    "model": "permission"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 3,
-  "fields": {
-    "app_label": "auth",
-    "model": "group"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 4,
-  "fields": {
-    "app_label": "auth",
-    "model": "user"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 5,
-  "fields": {
-    "app_label": "contenttypes",
-    "model": "contenttype"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 6,
-  "fields": {
-    "app_label": "sessions",
-    "model": "session"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 7,
-  "fields": {
-    "app_label": "market",
-    "model": "product"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "0bjq02po7ldau7f18xs6zdn4eixr6bk6",
-  "fields": {
-    "session_data": ".eJxVjMsOwiAQRf-FtSFAkYdL9_0GMjMMUjU0Ke3K-O_apAvd3nPOfYkE21rT1nlJUxYXocXpd0OgB7cd5Du02yxpbusyodwVedAuxznz83q4fwcVev3WSjkf80ADorVRBx9cKcFbJFeIWGdtrNEmRET2cA7aF1LkMttoPIMS7w_W3Dfd:1oeAAY:KO9lkcKFs63lFs0Jf--BfnOnhpGgGwcGR2oT_zoLnvg",
-    "expire_date": "2022-10-14T07:10:46.774Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "55gbu51i66td35qxf8vopk7bjkmmw01t",
-  "fields": {
-    "session_data": ".eJxVjMsOwiAQRf-FtSFAkYdL9_0GMjMMUjU0Ke3K-O_apAvd3nPOfYkE21rT1nlJUxYXocXpd0OgB7cd5Du02yxpbusyodwVedAuxznz83q4fwcVev3WSjkf80ADorVRBx9cKcFbJFeIWGdtrNEmRET2cA7aF1LkMttoPIMS7w_W3Dfd:1oeIJo:9BaofLdF4ZuOju0wfeyZ_os42DYdyDwmZPUHHKOdxkc",
-    "expire_date": "2022-10-14T15:52:52.928Z"
-  }
-},
-{
-  "model": "sessions.session",
-  "pk": "zbkerp9c1sj4bedt3qnh8vdz4w8rbnif",
-  "fields": {
-    "session_data": ".eJxVjMsOwiAQRf-FtSFAkYdL9_0GMjMMUjU0Ke3K-O_apAvd3nPOfYkE21rT1nlJUxYXocXpd0OgB7cd5Du02yxpbusyodwVedAuxznz83q4fwcVev3WSjkf80ADorVRBx9cKcFbJFeIWGdtrNEmRET2cA7aF1LkMttoPIMS7w_W3Dfd:1ofIpo:caFlD0JTgFsebPZ4a3U8Xgydqi13mgiX_hzL37txx44",
-    "expire_date": "2022-10-17T10:38:04.890Z"
-  }
-},
-{
-  "model": "market.product",
-  "pk": 3,
-  "fields": {
-    "product_name": "Samsung UE43NU70",
-    "product_description": "Насладитесь четким изображением на экране 4K UHD телевизора, экран которого содержит в 4 раза больше пикселей по сравнению с FHD телевизором. Еще больше деталей в каждой сцене.",
-    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_95_1402_0.jpg",
-    "product_category": "televisions",
-    "state": "ACTIVE",
-    "created_at": "2022-10-03T10:44:07.889Z",
-    "changed_at": "2022-10-03T10:44:07.889Z",
-    "price": "20000.00",
-    "remains": 2
-  }
-},
-{
-  "model": "market.product",
-  "pk": 4,
-  "fields": {
-    "product_name": "Xiaomi L55M6-6ARG",
-    "product_description": "4K UHD | Безграничный дисплей",
-    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_95_2120_0_1.jpg",
-    "product_category": "televisions",
-    "state": "ACTIVE",
-    "created_at": "2022-10-03T10:53:19.655Z",
-    "changed_at": "2022-10-03T10:53:19.655Z",
-    "price": "25000.00",
-    "remains": 1
-  }
-},
-{
-  "model": "market.product",
-  "pk": 5,
-  "fields": {
-    "product_name": "LG 32LM570BPLA",
-    "product_description": "Новейший процессор обработки изображения автоматически корректирует цвета, делая изображение более насыщенным и естественным.\r\nНаслаждайтесь красотой естественных цветов природы на экране вашего телевизора.",
-    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_95_1556_5.png",
-    "product_category": "televisions",
-    "state": "ACTIVE",
-    "created_at": "2022-10-03T10:55:41.581Z",
-    "changed_at": "2022-10-03T10:55:41.581Z",
-    "price": "15000.00",
-    "remains": 3
-  }
-},
-{
-  "model": "market.product",
-  "pk": 6,
-  "fields": {
-    "product_name": "Samsung RT53K653",
-    "product_description": "Только система Twin Cooling Plus™ создает в холодильнике благоприятную среду для хранения свежих продуктов при 70% уровне влажности, в отличие от традиционных TMF, которые обеспечивают лишь 30% уровень влажности. Таким образом, данная технология позволяет дольше сохранять свежесть продуктов, не вызывая их высыхание.",
-    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_25_565_5.JPG",
-    "product_category": "refrigerators",
-    "state": "ACTIVE",
-    "created_at": "2022-10-03T11:09:59.295Z",
-    "changed_at": "2022-10-03T11:09:59.295Z",
-    "price": "78000.00",
-    "remains": 1
-  }
-},
-{
-  "model": "market.product",
-  "pk": 7,
-  "fields": {
-    "product_name": "LG GC-Q22FTBKL",
-    "product_description": "Панель холодного воздуха в верхней части холодильника обеспечивает на 32%* более быстрое и равномерное охлаждение, чтобы ваши продукты сохранялись свежими еще дольше.",
-    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_25_696_0_6.png",
-    "product_category": "refrigerators",
-    "state": "ACTIVE",
-    "created_at": "2022-10-03T11:11:10.706Z",
-    "changed_at": "2022-10-03T11:11:10.706Z",
-    "price": "95000.00",
-    "remains": 1
-  }
-},
-{
-  "model": "market.product",
-  "pk": 8,
-  "fields": {
-    "product_name": "ARG W-K20010S-A",
-    "product_description": "Электрический чайник ARG W-K20010S-A мощностью 1500 Вт и объемом 1,8 л подойдет для длительного чаепития в кругу семьи и друзей. Корпус выполнен из нержавеющей стали и прекрасно впишется в любой интерьер. Скрытый нагревательный элемент не имеет прямого контакта с водой: чайник нагревается быстрее, а очистка от накипи становится легче. Чайник устойчиво стоит на круглом основании, его можно поворачивать и брать с любой стороны.",
-    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_35_579_1_1.webp",
-    "product_category": "electric_kettles",
-    "state": "ACTIVE",
-    "created_at": "2022-10-03T11:14:21.891Z",
-    "changed_at": "2022-10-03T11:14:21.891Z",
-    "price": "8490.00",
-    "remains": 12
-  }
-},
-{
-  "model": "market.product",
-  "pk": 9,
-  "fields": {
-    "product_name": "ARG CA-250XT",
-    "product_description": "Функциональный чайный набор ARG CA-250XT состоит из чайника емкостью 2.5л, заварочного чайника объемом 1л и нагревательного элемента. Набор поможет вам не только вскипятить воду, но и заварить чай. Температура воды устанавливается автоматически или вручную.",
-    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_35_401_0.webp",
-    "product_category": "electric_kettles",
-    "state": "ACTIVE",
-    "created_at": "2022-10-03T11:15:24.210Z",
-    "changed_at": "2022-10-03T11:15:24.210Z",
-    "price": "39990.00",
-    "remains": 14
-  }
-},
-{
-  "model": "market.product",
-  "pk": 10,
-  "fields": {
-    "product_name": "Braun BR WK 300",
-    "product_description": "Чайник Multiquick 3 надежный и уютный, выполненный в домашнем дизайне, специально разработанным для вас командой Braun. Использование чайника абсолютно безопасно – ведь его носик разработан специально с целью снижения вероятности того, что вы вдруг обольётесь",
-    "product_image": "https://object.pscloud.io/cms/cms/Photo/img_0_35_15_0.webp",
-    "product_category": "electric_kettles",
-    "state": "ACTIVE",
-    "created_at": "2022-10-03T11:21:01.549Z",
-    "changed_at": "2022-10-03T11:21:01.549Z",
-    "price": "29990.00",
-    "remains": 10
   }
 }
 ]

@@ -17,21 +17,6 @@ from market.models import Order
 from market.models import OrderProduct
 
 
-#
-# class AddProductToCartView(CreateView):
-#
-#     template_name = 'test.html'
-#     form_class = AddProductToCartForm
-#     model = ProductInCart
-#
-#     def form_valid(self, form):
-#         product = get_object_or_404(Product, pk=self.kwargs.get('pk'))
-#         form.instance.product = product
-#         # form.instance.count = AddProductToCartForm(self.request.GET)
-#         return super().form_valid(form)
-#
-#     def get_success_url(self):
-#         return reverse('product_detail', kwargs={'pk': self.object.product_id})
 
 
 class CartView(ListView):
@@ -49,12 +34,6 @@ class CartView(ListView):
         if self.order_form.is_valid():
             return self.order_form.cleaned_data
         return None
-
-    # def form_valid(self, form):
-    #     form.instance.user_name = self.kwargs['user_name']
-    #     form.instance.phone = self.kwargs['phone']
-    #     form.instance.user_name = self.kwargs['address']
-    #     return super(CartView, self).form_valid(form)
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(CartView, self).get_context_data(object_list=object_list, **kwargs)
@@ -77,14 +56,14 @@ class OrderCreateView(CreateView):
             products_from_cart = ProductInCart.objects.all()
             order = Order.objects.create(**self.order_form.cleaned_data)
             for product in products_from_cart:
-                print(product.id)
                 product_from = Product.objects.get(id=product.product_id)
-                print(product_from)
                 order_product = OrderProduct.objects.create(
                     order=order,
                     product=product_from,
                     count=product.count
                 )
+                new_level = product_from.remains - product.count
+                Product.objects.filter(id=product_from.id).update(remains=new_level)
         products = ProductInCart.objects.all()
         products.delete()
         return redirect('index')

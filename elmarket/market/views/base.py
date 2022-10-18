@@ -19,18 +19,36 @@ class ProductsIndexView(ListView):
     model = Product
     context_object_name = 'products'
     ordering = ('-created_at',)
-    paginate_by = 4
+    paginate_by = 6
     paginate_orphans = 0
     answer = None
-    # success_url = reverse_lazy('index')
-
 
     def get(self, request, *args, **kwargs):
         self.form = self.get_search_form()
         self.product_to_cart_form = AddProductToCartForm(self.request.GET)
         self.search_value = self.get_search_value()
-        self.product_to_cart_value = self.get_product_to_cart()
         return super().get(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        self.form = self.get_search_form()
+        self.product_to_cart_form = AddProductToCartForm(self.request.POST)
+        self.search_value = self.get_search_value()
+        self.product_to_cart_value = self.get_product_to_cart()
+        if self.product_to_cart_value:
+            product_id = self.kwargs.get('pk')
+            count = self.product_to_cart_value
+            product = Product.objects.get(id=product_id)
+            if product.remains >= count:
+                if ProductInCart.objects.filter(product=product).exists():
+                    product_in_cart = ProductInCart.objects.get(product_id=product_id)
+                    counter = product_in_cart.count + count
+                    ProductInCart.objects.filter(product_id=product_id).update(count=counter)
+                else:
+                    ProductInCart.objects.create(product_id=product_id, count=count)
+            else:
+                self.answer = 'Такое количество товара отсутствует на складе.' \
+                              ' Введите меньшее значение.'
+            return super().get(request, *args, **kwargs)
 
     def get_search_form(self):
         return SearchForm(self.request.GET)
@@ -50,23 +68,6 @@ class ProductsIndexView(ListView):
         if self.search_value:
             query = Q(product_name__icontains=self.search_value) | Q(product_description__icontains=self.search_value)
             queryset = queryset.filter(query)
-        if self.product_to_cart_value:
-            product_id = self.kwargs.get('pk')
-            count = self.product_to_cart_value
-            product = Product.objects.get(id=product_id)
-            if product.remains >= count:
-                if ProductInCart.objects.filter(product=product).exists():
-                    product_in_cart = ProductInCart.objects.get(product_id=product_id)
-                    counter = product_in_cart.count + count
-                    ProductInCart.objects.filter(product_id=product_id).update(count=counter)
-                else:
-                    ProductInCart.objects.create(product_id=product_id, count=count)
-                new_level = product.remains - count
-                Product.objects.filter(id=product_id).update(remains=new_level)
-            else:
-                self.answer = 'Такое количество товара отсутствует на складе.' \
-                              ' Введите меньшее значение.'
-                return queryset
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):

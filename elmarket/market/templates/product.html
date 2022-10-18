@@ -8,6 +8,9 @@
     <div class="container">
         <p class="main-title-home"></p>
         <div class="box">
+        {% if answer is not None %}
+            <h1 class="answer" style="color: red">{{ answer }}</h1>
+        {% endif %}
 
             <div class="row justify-content-center ">
                 <div class="col-5 text-center">
@@ -25,21 +28,22 @@
                     <p class="card-description">{{ product.product_description }}</p>
                     <span class="added">добавлено: {{ product.created_at |date:'Y/m/d H:i:s' }}</span>
 
-                    <form class="text-center" action="{% url 'product_detail_add' product.pk %}" method="GET">
-                        {% for f in product_to_cart_form %}
-                        <label for="{{ f.id_for_label }}">{{ f.label }}:</label>
-                        {% for error in f.errors %}
-                            <p class="form-error">{{ f.error }}</p>
-                            {{ f }}
+                    <form class="text-center" action="{% url 'product_detail_add' product.pk %}" method="POST">
+                            {% csrf_token %}
+                                {% for f in product_to_cart_form %}
+                                <label for="{{ f.id_for_label }}">{{ f.label }}:</label>
+                                    {% for error in f.errors %}
+                                        <p class="form-error">{{ f.error }}</p>
+                                        {{ f }}
+                                    {% endfor %}
 
-                        {% endfor %}
-                        <div class="row justify-content-center">
-                            <div class="col-10 text-center">
-                                <button type="submit" class="btn btn-secondary btn-block">В корзину</button>
-                            </div>
-                        </div>
-                    </form>
-                    {% endfor %}
+                                <div class="row justify-content-center">
+                                    <div class="col-10 text-center">
+                                        <button type="submit" class="btn btn-secondary btn-block">В корзину</button>
+                                    </div>
+                                </div>
+                            </form>
+                            {% endfor %}
 
                     <div class="row justify-content-center space-between">
 
