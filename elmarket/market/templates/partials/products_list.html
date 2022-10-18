@@ -19,43 +19,42 @@
 
     <div class="row row-card row-cols-3 row-cols-lg-3 g-2 g-lg-3 justify-content-center">
         {% for product in products %}
+            <div class="col between-space">
+               <div class="p-3 border bg-light center-block">
+                  <a href="{% url 'product_detail' product.pk %}"><img class="card-img-top" src="{{ product.product_image }}" alt="Card image cap"></a>
+                  <div class="card-body">
+                    <h5 class="card-title">{{ product.product_name }}</h5>
+                    {% for choice in choices %}
+                        {% if product.product_category == choice.0 %}
+                            <a class="category-link" href="{% url 'list_by_category' choice.0 %}">{{ choice.1 }}</a>
+                        {% endif%}
+                    {% endfor %}
+{#                            {{product.get_product_category_display}}#}
+                    <p class="product-price">Цена: {{ product.price | floatformat:-2 }} $</p>
+                    <a class="detail" href="{% url 'product_detail' product.pk %}">узнать подробнее >>> </a>
+                    <div class="card-footer">
 
-                    <div class="col between-space">
-                       <div class="p-3 border bg-light center-block">
-                          <a href="{% url 'product_detail' product.pk %}"><img class="card-img-top" src="{{ product.product_image }}" alt="Card image cap"></a>
-                          <div class="card-body">
-                            <h5 class="card-title">{{ product.product_name }}</h5>
-                            {% for choice in choices %}
-                                {% if product.product_category == choice.0 %}
-                                    <a class="category-link" href="{% url 'list_by_category' choice.0 %}">{{ choice.1 }}</a>
-                                {% endif%}
-                            {% endfor %}
-                            <p class="product-price">Цена: {{ product.price | floatformat:-2 }} $</p>
-                            <div class="card-footer">
-                                <a class="detail" href="{% url 'product_detail' product.pk %}">узнать подробнее >>> </a>
 
-
-                                    <form class="text-center" action="{% url 'index_add' product.pk %}" method="GET">
-                                        {% for f in product_to_cart_form %}
-                                        <label for="{{ f.id_for_label }}">{{ f.label }}:</label>
-                                        {% for error in f.errors %}
-                                            <p class="form-error">{{ f.error }}</p>
-                                            {{ f }}
-
-                                        {% endfor %}
-                                        <div class="row justify-content-center">
-                                            <div class="col-10 text-center">
-                                                <button type="submit" class="btn btn-secondary btn-block">В корзину</button>
-                                            </div>
-                                        </div>
-                                    </form>
-
+                            <form class="text-center" action="{% url 'index_add' product.pk %}" method="GET">
+                                {% for f in product_to_cart_form %}
+                                <label for="{{ f.id_for_label }}">{{ f.label }}:</label>
+                                    {% for error in f.errors %}
+                                        <p class="form-error">{{ f.error }}</p>
+                                        {{ f }}
                                     {% endfor %}
 
-                            </div>
-                          </div>
-                       </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-10 text-center">
+                                        <button type="submit" class="btn btn-secondary btn-block">В корзину</button>
+                                    </div>
+                                </div>
+                            </form>
+                            {% endfor %}
+
                     </div>
+                  </div>
+               </div>
+            </div>
 
         {% endfor %}
 

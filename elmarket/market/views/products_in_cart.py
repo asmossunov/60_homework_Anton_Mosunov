@@ -1,6 +1,6 @@
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
-from django.views.generic import CreateView, DetailView, ListView
+from django.views.generic import CreateView, DetailView, ListView, DeleteView
 
 from market.forms import AddProductToCartForm
 
@@ -11,6 +11,10 @@ from market.models import Product
 from market.models import CategoryChoices
 
 from market.forms import OrderForm
+
+from market.models import Order
+
+from market.models import OrderProduct
 
 
 #
@@ -38,22 +42,19 @@ class CartView(ListView):
 
     def get(self, request, *args, **kwargs):
         self.order_form = OrderForm(self.request.GET)
-        self.product_to_cart_value = self.get_product_to_cart()
+        self.order_value = self.get_order_value()
         return super().get(request, *args, **kwargs)
 
-
-    def get_search_value(self):
-        if self.form.is_valid():
-            return self.form.cleaned_data.get('search')
+    def get_order_value(self):
+        if self.order_form.is_valid():
+            return self.order_form.cleaned_data
         return None
 
-    def get_product_to_cart(self):
-        if self.product_to_cart_form.is_valid():
-            return self.product_to_cart_form.cleaned_data.get('count')
-        return None
-
-    def total(self):
-        return self.product.priсe * self.count
+    # def form_valid(self, form):
+    #     form.instance.user_name = self.kwargs['user_name']
+    #     form.instance.phone = self.kwargs['phone']
+    #     form.instance.user_name = self.kwargs['address']
+    #     return super(CartView, self).form_valid(form)
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(CartView, self).get_context_data(object_list=object_list, **kwargs)
@@ -61,9 +62,39 @@ class CartView(ListView):
         total = 0
         for product in products:
             total += product.product.price * product.count
+        context['order_form'] = self.order_form
         context['total'] = total
         context['products'] = ProductInCart.objects.all()
         return context
 
 
+class OrderCreateView(CreateView):
+    model = Order
 
+    def post(self, request, *args, **kwargs):
+        self.order_form = OrderForm(self.request.POST)
+        if self.order_form.is_valid():
+            products_from_cart = ProductInCart.objects.all()
+            order = Order.objects.create(**self.order_form.cleaned_data)
+            for product in products_from_cart:
+                print(product.id)
+                product_from = Product.objects.get(id=product.product_id)
+                print(product_from)
+                order_product = OrderProduct.objects.create(
+                    order=order,
+                    product=product_from,
+                    count=product.count
+                )
+        products = ProductInCart.objects.all()
+        products.delete()
+        return redirect('index')
+
+
+class CartProductDeleteView(DeleteView):
+    model = ProductInCart
+
+    def post(self, request, *args, **kwargs):
+        print(kwargs['pk'])
+        product = ProductInCart.objects.filter(pk=kwargs['pk'])
+        product.delete()
+        return redirect('cart_open')

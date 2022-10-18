@@ -119,13 +119,16 @@
     color: #6c6c6c;
     text-shadow: 2px 2px 1px white;
 }
-
-
+.cart-title{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
 
 .btn{
     font-size: 20px;
-    margin-top: 25px;
-    margin-bottom: 34px;
+
     padding: 0.7rem 2.5rem;
     border-radius: 2.25rem;
 }

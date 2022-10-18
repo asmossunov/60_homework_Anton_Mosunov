@@ -3,7 +3,7 @@ from django.db import models
 
 class Order(models.Model):
     products = models.ManyToManyField(
-        to='tracker.Product',
+        to='market.Product',
         verbose_name='Тип',
         related_name='orders',
         blank=True
@@ -36,4 +36,4 @@ class Order(models.Model):
     )
 
     def __str__(self):
-        return f'{self.type_name} {self.phone} {self.address}'
+        return f'{self.user_name} {self.phone} {self.address}'

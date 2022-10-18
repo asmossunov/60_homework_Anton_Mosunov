@@ -50,10 +50,14 @@ class AddProductToCartForm(forms.ModelForm):
     class Meta:
         model = ProductInCart
         fields = ('count',)
+        widgets = {
+            'count': forms.NumberInput(attrs={'style': 'width: 10px'}),
+        }
 
-class OrderForm(forms.ModelForm))
 
 
-class Meta:
-    model = Order
-    fields = ('user_name', 'phone', 'address')
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ('user_name', 'phone', 'address')
+

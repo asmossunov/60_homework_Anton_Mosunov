@@ -41,13 +41,13 @@ class ProductView(DetailView):
                     product_in_cart = ProductInCart.objects.get(product_id=product_id)
                     counter = product_in_cart.count + count
                     ProductInCart.objects.filter(product_id=product_id).update(count=counter)
-                    new_level = product.remains - count
-                    Product.objects.filter(id=product_id).update(remains=new_level)
                 else:
                     ProductInCart.objects.create(product_id=product_id, count=count)
-                product.remains -= count
+                new_level = product.remains - count
+                Product.objects.filter(id=product_id).update(remains=new_level)
             else:
-                self.answer = 'слишком большое значение'
+                self.answer = 'Такое количество товара отсутствует на складе.' \
+                              ' Введите меньшее значение.'
                 return queryset
         return queryset
 

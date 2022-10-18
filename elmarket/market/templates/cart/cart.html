@@ -8,8 +8,9 @@
     <br>
     <br>
     <br>
-
+    <p class="cart-title">Корзина товаров</p>
     <table class="table">
+    <tr>
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -17,6 +18,7 @@
       <th scope="col">Количество</th>
       <th scope="col">Цена</th>
       <th scope="col">Сумма</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -28,19 +30,47 @@
       <td>{{ product.product.price }}</td>
 
       <td>{% widthratio product.count 1 product.product.price %}</td>
+      <td>
+          <form class="text-center" action="{% url 'delete_from_cart' product.pk %}" method="POST">
+             {% csrf_token %}
+                    <button type="submit" class="btn btn-secondary btn-block">Удалить</button>
+
+          </form>
+      </td>
     </tr>
   {% endfor %}
-
   </tbody>
-    <tfoot>
-    <tr>
-      <th>Total</th>
-      <td>${{ total|floatformat:2 }}</td>
-    </tr>
-  </tfoot>
-
+        <th></th>
+      <th>Итого</th>
+        <th></th>
+        <th></th>
+      <th>${{ total|floatformat:2 }}</th>
 </table>
+    <hr>
+    {% for f in order_form %}
+    <form class="text-center" action="{% url 'order_add' %}" method="POST">
+        {% csrf_token %}
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <label class="form-label"for="{{ f.id_for_label }}">{{ f.label }}:</label>
+            </div>
+            <div class="col-3">
+                {{ f }}
+            </div>
+
+            <p class="form-error">{{ error }}</p>
+
+    {% endfor %}
+        <div class="row justify-content-center">
+            <div class="col-10 text-center">
+                <button type="submit" class="btn btn-secondary btn-block">Оформить заказ</button>
+            </div>
+        </div>
+    </form>
+
 </div>
+
+
 
 
 {% endblock %}
