@@ -1,4 +1,5 @@
 from django.db.models import Q
+from django.shortcuts import redirect
 
 from django.views.generic import ListView
 from market.models import Product
@@ -44,7 +45,7 @@ class ProductsIndexView(ListView):
             else:
                 self.answer = 'Такое количество товара отсутствует на складе.' \
                               ' Введите меньшее значение.'
-            return super().get(request, *args, **kwargs)
+            return redirect('index')
 
     def get_search_form(self):
         return SearchForm(self.request.GET)

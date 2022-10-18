@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 
@@ -42,11 +42,10 @@ class ProductView(DetailView):
                     ProductInCart.objects.filter(product_id=product_id).update(count=counter)
                 else:
                     ProductInCart.objects.create(product_id=product_id, count=count)
-
             else:
                 self.answer = 'Такое количество товара отсутствует на складе.' \
                               ' Введите меньшее значение.'
-            return super().get(request, *args, **kwargs)
+            return redirect('product_detail', pk=kwargs['pk'])
 
     def get_product_to_cart(self):
         if self.product_to_cart_form.is_valid():
