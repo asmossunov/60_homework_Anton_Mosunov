@@ -1,8 +1,6 @@
-from django.shortcuts import get_object_or_404, redirect
-from django.urls import reverse
-from django.views.generic import CreateView, DetailView, ListView, DeleteView
+from django.shortcuts import redirect
 
-from market.forms import AddProductToCartForm
+from django.views.generic import CreateView, ListView, DeleteView
 
 from market.models import ProductInCart
 

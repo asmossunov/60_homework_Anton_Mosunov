@@ -1,9 +1,5 @@
-from django.core.exceptions import ValidationError
 from django.db.models import Q
-from django.shortcuts import render, get_object_or_404, redirect
-from urllib.parse import urlencode
 
-from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView
 from market.models import Product
 
